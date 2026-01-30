@@ -1,18 +1,16 @@
-public class FactorialExample {
+public class HelloJenkins {
     public static void main(String[] args) {
-        // Instead of Scanner, we take the first argument passed to the program
-        if (args.length == 0) {
-            System.out.println("Please provide a number as an argument.");
-            return;
-        }
-
-        int number = Integer.parseInt(args[0]);
-        long factorial = 1;
+        System.out.println("========================================");
+        System.out.println("   Hello from the Jenkins Pipeline!   ");
+        System.out.println("========================================");
         
-        for (int i = 1; i <= number; i++) {
-            factorial *= i;
-        }
+        // Print runtime details
+        String javaVersion = System.getProperty("java.version");
+        long startTime = System.currentTimeMillis();
         
-        System.out.println("The factorial of " + number + " is: " + factorial);
+        System.out.println("Execution Status: SUCCESS");
+        System.out.println("Running on Java version: " + javaVersion);
+        System.out.println("Build Timestamp: " + startTime);
+        System.out.println("========================================");
     }
 }
