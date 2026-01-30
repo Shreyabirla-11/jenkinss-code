@@ -1,26 +1,18 @@
-import java.util.Scanner;
-
 public class FactorialExample {
     public static void main(String[] args) {
-        // Create a scanner object for user input
-        Scanner scanner = new Scanner(System.in);
+        // Instead of Scanner, we take the first argument passed to the program
+        if (args.length == 0) {
+            System.out.println("Please provide a number as an argument.");
+            return;
+        }
+
+        int number = Integer.parseInt(args[0]);
+        long factorial = 1;
         
-        System.out.print("Enter a positive integer: ");
-        int number = scanner.nextInt();
-        
-        long factorial = 1; // Use 'long' because factorials grow very fast!
-        
-        if (number < 0) {
-            System.out.println("Error: Please enter a non-negative number.");
-        } else {
-            // Loop to calculate the result
-            for (int i = 1; i <= number; i++) {
-                factorial *= i;
-            }
-            
-            System.out.println("The factorial of " + number + " is: " + factorial);
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
         }
         
-        scanner.close();
+        System.out.println("The factorial of " + number + " is: " + factorial);
     }
 }
